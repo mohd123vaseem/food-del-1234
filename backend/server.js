@@ -10,6 +10,17 @@ import orderRouter from "./routes/orderRoute.js"
 // app config
 const app = express()
 const port = process.env.PORT || 4000;
+//edit
+app.use('/images', express.static('uploads', {
+  setHeaders: (res, path) => {
+    res.set('Content-Type', 'image/png'); // Adjust based on image type (e.g., 'image/jpeg')
+  }
+}));
+app.use('/images', (req, res, next) => {
+  console.log(`Image request received for: ${req.path}`);
+  next();
+});
+
 
 
 // middlewares
