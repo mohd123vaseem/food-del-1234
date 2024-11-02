@@ -14,19 +14,10 @@ const port = process.env.PORT || 4000;
 
 // middlewares
 app.use(express.json())
-app.use(cors())
-//edit
-app.use(cors({
-  origin: 'https://food-del-1234-frontend.onrender.com',
-  credentials: true
-}));
+// app.use(cors())
+app.use(cors({ origin: 'https://food-del-1234-frontend.onrender.com' }));
 
-//edit
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+
 
 
 // db connection
